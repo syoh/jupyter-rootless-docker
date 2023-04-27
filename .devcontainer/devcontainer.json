@@ -1,0 +1,35 @@
+{
+    "name": "Jupyter",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "remoteUser": "root",
+
+	"forwardPorts": [8888],
+	"overrideCommand": false,
+
+	"runArgs": [
+		"--user=root"
+	],
+
+    "customizations": {
+
+		"vscode": {
+			"settings": {
+				"python.defaultInterpreterPath": "/opt/conda/bin/python",
+				"r.rterm.linux": "/opt/conda/bin/radian",	// for R
+				"r.bracketedPaste": true, 					// for R
+				"r.plot.useHttpgd": true					// for R
+			},
+			"extensions": [
+				"ms-python.python",							// for Python
+				"ms-toolsai.jupyter",						// for Python
+				"ms-toolsai.jupyter-keymap", 				// for Python
+				"quarto.quarto",							// for Python and R
+				"reditorsupport.r",							// for R
+				"RDebugger.r-debugger",						// for R
+				"analytic-signal.preview-pdf"
+			]
+		}
+	}
+}
