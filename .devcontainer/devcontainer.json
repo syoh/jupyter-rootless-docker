@@ -3,17 +3,28 @@
     "build": {
         "dockerfile": "Dockerfile"
     },
+	//"workspaceMount": "source=${localWorkspaceFolder},target=/workspaces,type=bind",
+	//"workspaceFolder": "/workspaces",
 	"workspaceMount": "source=${localWorkspaceFolder},target=/home/jovyan/work,type=bind",
 	"workspaceFolder": "/home/jovyan/work",
 
-    "remoteUser": "root",
+    //"remoteUser": "syoh",
 
 	"forwardPorts": [8888],
-	"overrideCommand": false,
+	"overrideCommand": true,
+	"postStartCommand": "jupyter lab --allow-root --ip 0.0.0.0",
 
 	"runArgs": [
 		"--user=root"
 	],
+
+		//"--env=NB_USER=syoh",
+		//"--workdir=/home/syoh",
+		//"--env=NB_GID=0",
+		//"--env=CHOWN_HOME=yes"
+	//"runArgs": [
+	// "--env=DOCKER_STACKS_JUPYTER_CMD=notebook --allow-root"
+	//]
 
     "customizations": {
 
