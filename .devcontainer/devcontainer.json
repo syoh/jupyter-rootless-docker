@@ -12,7 +12,7 @@
 
 	"forwardPorts": [8888],
 	"overrideCommand": true,
-	"postStartCommand": "jupyter lab --allow-root --ip 0.0.0.0 --ServerApp.allow_origin='*'",
+	"postStartCommand": "nohup bash -c 'jupyter lab --allow-root --ip 0.0.0.0 --ServerApp.allow_origin=\"*\" &'",
 
 	"runArgs": [
 		"--user=root",
