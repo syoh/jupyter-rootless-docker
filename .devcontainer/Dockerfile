@@ -69,7 +69,7 @@ RUN mamba install -y -c conda-forge --freeze-installed jupyter-server-proxy jupy
 RUN echo "echo \"Jupyter server token: \$(jupyter server list 2>&1 | grep -oP '(?<=token=)[[:alnum:]]*')\"" > ${HOME}/.get-jupyter-token.sh && \
     echo "sh \${HOME}/.get-jupyter-token.sh" >> ${HOME}/.bashrc
 
-RUN echo "echo \"\$(jupyter server list 2>&1 | sed 's/\(\/[[:alnum:]]\+\):/\/localhost:/g')\"" > ${HOME}/.get-jupyter-url.sh && \
+RUN echo "echo \"\$(jupyter server list 2>&1 | sed 's/\(\/[[:alnum:]-]\+\):/\/localhost:/g')\"" > ${HOME}/.get-jupyter-url.sh && \
     echo "sh \${HOME}/.get-jupyter-url.sh" >> ${HOME}/.bashrc
 
 ### R development
