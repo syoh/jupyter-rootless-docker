@@ -15,7 +15,10 @@
 	"postStartCommand": "jupyter lab --allow-root --ip 0.0.0.0",
 
 	"runArgs": [
-		"--user=root"
+		"--user=root",
+		"--env=GRANT_SUDO=yes",
+		"--memory=1.8g",
+		"--cpu-shares=300"
 	],
 
 		//"--env=NB_USER=syoh",
