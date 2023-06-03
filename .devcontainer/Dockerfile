@@ -81,3 +81,4 @@ USER root
 
 RUN apt update -qq && \
     apt install -y numactl
+    apt install -y tmux
