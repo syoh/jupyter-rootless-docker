@@ -56,7 +56,7 @@ RUN wget -q https://download2.rstudio.org/server/jammy/amd64/rstudio-server-${R_
     chmod 777 /var/run/rstudio-server && \
     chmod +t /var/run/rstudio-server
 
-# RUN R -e "dotR <- file.path(Sys.getenv('HOME'), '.R'); if(!file.exists(dotR)){ dir.create(dotR) }; Makevars <- file.path(dotR, 'Makevars'); if (!file.exists(Makevars)){  file.create(Makevars) }; cat('\nCXX14FLAGS=-O3 -fPIC -Wno-unused-variable -Wno-unused-function', 'CXX14 = g++ -std=c++1y -fPIC', 'CXX = g++', 'CXX11 = g++', file = Makevars, sep = '\n', append = TRUE)"
+RUN R -e "dotR <- file.path(Sys.getenv('HOME'), '.R'); if(!file.exists(dotR)){ dir.create(dotR) }; Makevars <- file.path(dotR, 'Makevars'); if (!file.exists(Makevars)){  file.create(Makevars) }; cat('\nCXX14FLAGS=-O3 -fPIC -Wno-unused-variable -Wno-unused-function', 'CXX14 = g++ -std=c++1y -fPIC', 'CXX = g++', 'CXX11 = g++', file = Makevars, sep = '\n', append = TRUE)"
 
 USER ${NB_USER}
 
@@ -77,7 +77,7 @@ RUN pip install radian && \
     R -q -e 'install.packages(c("markdown", "languageserver", "httpgd"), repos="cloud.r-project.org")' &&\
     R -q -e 'remotes::install_github("ManuelHentschel/vscDebugger")'
 
-USER root
-
-RUN apt update -qq && \
-    apt install -y numactl
+## USER root
+## 
+## RUN apt update -qq && \
+##     apt install -y numactl

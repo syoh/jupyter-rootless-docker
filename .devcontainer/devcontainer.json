@@ -1,22 +1,24 @@
 {
-    "name": "Jupyter",
-    "build": {
-        "dockerfile": "Dockerfile"
-    },
+	"name": "Jupyter",
+	//"build": {
+	//		"dockerfile": "Dockerfile"
+	//},
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "prod",
 
-	"workspaceMount": "source=${localWorkspaceFolder},target=/home/jovyan/work,type=bind",
+	//"workspaceMount": "source=${localWorkspaceFolder},target=/home/jovyan/work,type=bind",
 	"workspaceFolder": "/home/jovyan/work",
 
 	"forwardPorts": [8888],
-	"overrideCommand": true,
-	"postStartCommand": "nohup bash -c 'jupyter lab --allow-root --ip 0.0.0.0 --ServerApp.allow_origin=\"*\" &'",
+	//"overrideCommand": true,
+	//"postStartCommand": "nohup bash -c 'jupyter lab --allow-root --ip 0.0.0.0 --ServerApp.allow_origin=\"*\" &'",
 
-	"runArgs": [
-		"--user=root",
-		"--env=GRANT_SUDO=yes",
-		"--memory=1.8g",
-		"--cpu-shares=300"
-	],
+	//"runArgs": [
+	//	"--user=root",
+	//	"--env=GRANT_SUDO=yes",
+	//	"--memory=1.8g",
+	//	"--cpu-shares=300"
+	//],
 
     "customizations": {
 
